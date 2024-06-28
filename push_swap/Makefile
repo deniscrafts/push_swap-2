@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/23 20:20:42 by denrodri          #+#    #+#              #
-#    Updated: 2024/06/26 19:09:07 by denrodri         ###   ########.fr        #
+#    Updated: 2024/06/28 16:40:50 by denrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

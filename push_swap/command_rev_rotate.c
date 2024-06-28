@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_rev_rotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:19:07 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/26 19:19:09 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:39:23 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,20 @@ void	rra(t_stack_node **a, bool checker)
 {
 	reverse_rotate(a);
 	if (!checker)
-		write(1, "rra\n", 4);
+	{
+		if (write(1, "rra\n", 4) < 0)
+			return ;
+	}
 }
 
 void	rrb(t_stack_node **b, bool checker)
 {
 	reverse_rotate(b);
 	if (!checker)
-		write(1, "rrb\n", 4);
+	{
+		if (write(1, "rrb\n", 4) < 0)
+			return ;
+	}
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b, bool checker)
@@ -47,5 +53,8 @@ void	rrr(t_stack_node **a, t_stack_node **b, bool checker)
 	reverse_rotate(a);
 	reverse_rotate(b);
 	if (!checker)
-		write(1, "rrr\n", 4);
+	{
+		if (write(1, "rrr\n", 4) < 0)
+			return;
+	}
 }

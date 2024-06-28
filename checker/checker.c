@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:10:20 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/26 19:10:42 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 17:24:40 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	error(t_stack_node **a, t_stack_node **b)
 {
 	free_stack(a);
 	free_stack(b);
-	write(2, "Error\n", 6);
+	if (write(2, "Error\n", 6) < 0)
+		return ;
 	exit(1);
 }
 
@@ -81,8 +82,14 @@ int	main(int argc, char **argv)
 		next_line = get_next_line(STDIN_FILENO);
 	}
 	if (stack_sorted(a) && stack_len(a) == len)
-		write(1, "OK\n", 3);
+	{
+		if (write(1, "OK\n", 3) < 0)
+			return (1);
+	}
 	else
-		write(1, "KO\n", 3);
+	{
+		if (write(1, "KO\n", 3) < 0)
+			return (1);
+	}
 	free(a);
 }

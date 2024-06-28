@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:03:22 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/25 18:04:45 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:51:17 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	set_cheapest(t_stack_node *b)
 	if (NULL == b)
 		return ;
 	best_match_value = LONG_MAX;
+	best_match_node = NULL;
 	while (b)
 	{
 		if (b->push_price < best_match_value)

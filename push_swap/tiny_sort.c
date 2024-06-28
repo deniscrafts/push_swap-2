@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 20:22:48 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/25 18:22:08 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 17:21:26 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static t_stack_node	*find_highest(t_stack_node *stack)
 
 	if (NULL == stack)
 		return (NULL);
+	highest_node = NULL;
 	highest = INT_MIN;
 	while (stack)
 	{
@@ -50,11 +51,14 @@ void	tiny_sort(t_stack_node **a)
 	t_stack_node	*highest_node;
 
 	highest_node = find_highest(*a);
+	if (stack_sorted(*a) || highest_node == NULL)
+		return ;
+	if (!highest_node)
+		return ;
 	if (*a == highest_node)
 		ra(a, false);
-	else if ((*a)->next == highest_node)
+	else if ((*a)-> next == highest_node)
 		rra(a, false);
 	if ((*a)->value > (*a)->next->value)
 		sa(a, false);
 }
-

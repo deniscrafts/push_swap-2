@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:45 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/26 19:18:47 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:45:00 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
 	free_stack(a);
 	if (flag_argc_2)
 		free_matrix(argv);
-	write(2, "Error\n", 6);
+	if (write(2, "Error\n", 6) < 0)
+		return ;
 	exit(1);
 }
 

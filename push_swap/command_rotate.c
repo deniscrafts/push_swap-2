@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:57 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/26 19:19:00 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:41:56 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,26 @@ static void	rotate(t_stack_node **stack)
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}	
+}
 
 void	ra(t_stack_node **a, bool checker)
 {
 	rotate(a);
 	if (!checker)
-		write(1, "ra\n", 3);
+	{
+		if (write(1, "ra\n", 3) < 0)
+			return ;
+	}
 }
 
 void	rb(t_stack_node **b, bool checker)
 {
 	rotate(b);
 	if (!checker)
-		write(1, "rb\n", 3);
+	{
+		if (write(1, "rb\n", 3) < 0)
+			return ;
+	}
 }
 
 void	rr(t_stack_node **a, t_stack_node **b, bool checker)
@@ -47,5 +53,8 @@ void	rr(t_stack_node **a, t_stack_node **b, bool checker)
 	rotate(a);
 	rotate(b);
 	if (!checker)
-		write(1, "rr\n", 3);
+	{
+		if (write(1, "rr\n", 3) < 0)
+			return ;
+	}
 }

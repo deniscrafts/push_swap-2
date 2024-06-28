@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denrodri <denrodri@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: denrodri <denrodri@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:33 by denrodri          #+#    #+#             */
-/*   Updated: 2024/06/26 19:19:15 by denrodri         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:42:48 by denrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,20 @@ void	sa(t_stack_node	**a, bool checker)
 {
 	swap(a);
 	if (!checker)
-		write(1, "sa\n", 3);
+	{
+		if (write(1, "sa\n", 3) < 0)
+			return ;
+	}
 }
 
 void	sb(t_stack_node **b, bool checker)
 {
 	swap(b);
 	if (!checker)
-		write(1, "sb\n", 3);
+	{
+		if (write(1, "sb\n", 3) < 0)
+			return ;
+	}
 }
 
 void	ss(t_stack_node **a, t_stack_node **b, bool checker)
@@ -49,5 +55,8 @@ void	ss(t_stack_node **a, t_stack_node **b, bool checker)
 	swap(a);
 	swap(b);
 	if (!checker)
-		write(1, "ss\n", 3);
+	{
+		if (write(1, "ss\n", 3) < 0)
+			return ;
+	}
 }
